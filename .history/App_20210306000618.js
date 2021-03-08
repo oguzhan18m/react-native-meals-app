@@ -1,17 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MealsNavigatorCreated from './navigation/MealsNavigator';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo';
-import {enableScreens} from 'react-native-screens';
-
-enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'satisfy' : require('./assets/fonts/Satisfy-Regular.ttf'),
-    'didact-gothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
+    'satisfy' : require('./assets/fonts/Satisfy-Regular.ttf')
   })
 }
 
@@ -24,11 +19,14 @@ export default function App() {
     startAsync={fetchFonts}
     onFinish={() => setFontLoaded(true)}
     onError={(err) => console.log(err)}
-    />
+/>
     )
   }
   return (
-    <MealsNavigatorCreated />
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
